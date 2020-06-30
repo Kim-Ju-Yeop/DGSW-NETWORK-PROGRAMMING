@@ -1,0 +1,37 @@
+2. 각 클래스의 맴버변수(전역변수)를 설계하시오.
+
+(1) ChatServer.class
+
+ // 서버의 포트 번호를 의미하여 1200번 포트로 서버를 가동시킬 때 사용합니다.
+ public static final int PORT = 1200;
+ 
+ // 현재 접속 중인 클라이언트의 갯수를 기억하는 용도로 사용합니다.
+ public static int CNT = 0;
+
+ // 각 클라이언트의 ChatSocketThread 인스턴스를 저장하는 용도로 사용합니다.
+ public static ArrayList<ChatSocketThread> clientList = new ArrayList<>();
+
+
+(2) ChatSocketThread.class
+
+ // 클라이언트의 각 socket 객체를 저장하는 용도로 사용합니다.
+ Socket socket;
+
+ // 클라이언트 고유의 id 값을 저장하는 용도로 사용합니다.
+ String id;
+
+ // 데이터를 서버로 전달하는 dataOs 변수를 공통적으로 사용합니다.
+ DataOutputStream dataOs;
+
+
+(3) ChatClient.class
+
+ // 클라이언트는 서버로 접속하기 위해 서버의 IP와 PORT 번호를 필요로 합니다.
+ public static final String IP = "10.80.161.125";
+ public static final int PORT = 1200;
+
+ // 클라이언트로부터 데이터 입력을 받는 과정이 많기 때문에 공통적으로 사용하는 Scanner 객체를 전역 변수로 선언했습니다.
+ public static final Scanner scanner = new Scanner(System.in);
+
+ // 클라이언트 고유의 socket 정보를 저장하는 변수입니다.
+ public static Socket socket;

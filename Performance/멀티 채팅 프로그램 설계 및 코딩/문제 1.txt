@@ -1,0 +1,28 @@
+1. 각 클래스의 기능을 설계하시오.
+
+(1) ChatServer.class
+
+ - PORT 번호의 서버를 실행시킵니다.
+ - 반복문을 사용하여 클라이언트의 접속을 관리하고 있습니다.
+ - 클라이언트의 현재 접속량이 10개 이상인지 판단하고 그에 따른 처리를 해줍니다.
+ - 만약 클라이언트의 현재 접속량이 10개 이상이라면 안내문과 함께 socket을 종료합니다.
+ - 그러나 클라이언트의 현재 접속량이 10개 이하라면 ChatSocketThread를 새롭게 추가해줍니다.
+
+
+(2) ChatSocketThread.class
+
+ - 생성자 매개변수를 통해 클라이언트의 개인별 Socket 정보를 전달받습니다.
+ - InputStream과 DataInputStream의 조합을 통해 접속한 클라이언트의 ID 값을 확인합니다.
+ - 그 후 반복문을 통해 클라이언트에서 전송하는 메세지 값을 전달 받아 출력해줍니다.
+
+
+(3) ChatClient.class
+
+ - Server IP, PORT를 통해 ChatServer에 접근합니다.
+ - 그 후 readThread, writeThread를 각각 실행시켜줍니다.
+ - readThread에서는 서버로 부터 전달 받는 문자 데이터들을 전달 받아 출력해줍니다.
+ - writeThread에서는 클라이언트의 ID와 메세지를 입력 받아 서버에게 전달하는 역할을 합니다.
+ 
+
+
+
